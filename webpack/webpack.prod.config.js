@@ -5,7 +5,10 @@ const commonConfig = require("./webpack.common.config");
 
 module.exports = merge(commonConfig, {
   mode: "production",
-  entry: "./index.jsx",
+  entry: [
+    "@babel/polyfill",
+    "./index.jsx", // the entry point of our app
+  ],
   output: {
     filename: "js/bundle.[fullhash].min.js",
     path: path.resolve(__dirname, "../dist"),
